@@ -1,8 +1,11 @@
 import '../styles/step3-view.sass'
 import Back from '../public/images/back.svg'
-import Info from '../public/images/info.svg'
 import { useContext } from 'react'
+import Loading from '../public/images/loading.svg'
 import UserContext from '../lib/UserContext'
+import InfoButton from './InfoButton'
+import ipldService from '../lib/ipld'
+import createDao from '../lib/createDao'
 
 const Step3View = () => {
   const {
@@ -12,13 +15,38 @@ const Step3View = () => {
     currency,
     setCurrency,
     balance,
-    updateUserWallet,
+    name,
+    url,
+    description,
+    logoHash,
   } = useContext(UserContext)
-  const createDao = async () => {
-    await updateUserWallet()
-    setStep(4)
-    setLoading(true)
+
+  const createNewDao = async () => {
+    setLoading({ img: Loading, title: 'Your dao is being created' })
+    const torusProvider = web3Obj.provider
+    const userInfo = web3Obj.getUserInfo()
+
+    const daoMetadata = {
+      creatorName: userInfo.name,
+      groupID: url.replace(/^.*[\\\/]/, ''),
+      groupURL: url,
+      name,
+      currency,
+      description,
+      logoImageHash,
+    }
+
+    const metadataHash = ipldService.uploadMetadata(daoMetadata)
+    // also call fbFly to store group data and metadata
+    // const error = createDAO(web3Obj.torus, metadata)
+
+    await createDao(torusProvider)
+
+    setTimeout(() => {
+      setLoading(undefined)
+    }, 3000)
   }
+
   const back = () => {
     setStep(2)
   }
@@ -36,14 +64,12 @@ const Step3View = () => {
           setCurrency(e.target.value)
         }}
       />
-      <div className="step3-info">
-        <img className="info-img" src={Info} />
-        <span className="info-text">
-          All DAOs come with their own community currency. <a>Learn more</a>
-        </span>
-      </div>
 
-      <a className="step3-button" onClick={createDao}>
+      <InfoButton
+        title={'All DAOs come with their own community tokens.'}
+        content={'Because they just do!'}
+      />
+      <a className="step3-button" onClick={createNewDao}>
         Create DAO
       </a>
       <a className="step3-back-button" onClick={back}>
