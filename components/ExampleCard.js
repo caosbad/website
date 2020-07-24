@@ -1,8 +1,6 @@
 import '../styles/example-card.sass'
-import HeaderWatermark from '../public/images/card-header-watermark.svg'
-import EthicalBrand from '../public/images/ethical-brand.svg'
-import FbLogo from '../public/images/fb-logo.svg'
-import UserProfile from '../public/images/user-profile.svg'
+import example from '../public/images/example.svg'
+
 
 const ExampleCard = ({ className }) => {
   const userName = 'Adrian G.'
@@ -11,6 +9,9 @@ const ExampleCard = ({ className }) => {
   return (
     <div className={className ? `example-card ${className}` : 'example-card'}>
       <div className="example-card-inner">
+      <span class="start-now-text">超过1400个DAO在Aragon创建</span>
+      <span class="start-now-text">储存的资产价值1900万美元</span>
+      <img className="logo-watermark" src={example} />
       </div>
     </div>
   )

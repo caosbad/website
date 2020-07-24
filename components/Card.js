@@ -8,7 +8,7 @@ import { UserProvider } from '../lib/UserContext'
 import DAOView from './DAOView'
 import LoginView from './LoginView'
 import RampView from './RampView'
-import Step1View from './Step1View'
+// import Step1View from './Step1View'
 import Step2View from './Step2View'
 import Step3View from './Step3View'
 import LoadingView from './LoadingView'
@@ -86,14 +86,14 @@ const Card = ({ className }) => {
           done: setFlying,
         }}
       >
-        {connected && !loading && (
+        {/* {connected && !loading && (
           <div className="card-user">
             <div className="user-profile">
               <img className="user-profile-img" src={profileImage} />
             </div>
             <div className="user-name">{userName}</div>
           </div>
-        )}
+        )} */}
         {!loading &&
           (connected ? (
             <div className="card-status connected">
@@ -115,32 +115,32 @@ const Card = ({ className }) => {
           ))}
         {!flying && !loading && (
           <div className="card-tabs">
-            <div
+            {/* <div
               className={step === 1 ? 'tab selected' : 'tab'}
               onClick={() => connected && setStep(1)}
             >
               <span className="tab-title">Step 01</span>
               <span className="tab-description">FB group URL</span>
-            </div>
+            </div> */}
             <div
               className={step === 2 ? 'tab selected' : 'tab'}
               onClick={() => connected && setStep(2)}
             >
-              <span className="tab-title">Step 02</span>
+              <span className="tab-title">Step 01</span>
               <span className="tab-description">Set DAO profile</span>
             </div>
             <div
               className={step === 3 ? 'tab selected' : 'tab'}
               onClick={() => connected && setStep(3)}
             >
-              <span className="tab-title">Step 03</span>
+              <span className="tab-title">Step 02</span>
               <span className="tab-description">DAO settings</span>
             </div>
             <div
               className={step === 4 ? 'tab selected' : 'tab'}
               onClick={() => connected && setStep(4)}
             >
-              <span className="tab-title">Step 04</span>
+              <span className="tab-title">Step 03</span>
               <span className="tab-description">Confirm DAO</span>
             </div>
           </div>
@@ -153,9 +153,11 @@ const Card = ({ className }) => {
           <LoginView />
         ) : flying ? (
           <DAOView />
-        ) : step === 1 ? (
-          <Step1View />
-        ) : step === 2 ? (
+        ) 
+        // : step === 1 ? (
+        //   <Step1View />
+        // ) 
+        : step === 2 ? (
           <Step2View />
         ) : step === 3 ? (
           <Step3View />

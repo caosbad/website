@@ -8,10 +8,10 @@ const MainSection = props => (
   <main className="main">
     <section className="main-header">
       <span className="main-header-title">
-        正和之道
+      Aragon China
       </span>
       <span className="main-header-subtitle">
-        运行于Aragon的新型组织
+      构建Aragon的东方生态
       </span>
     </section>
     <section className="main-examples">

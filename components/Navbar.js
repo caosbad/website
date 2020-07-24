@@ -12,7 +12,7 @@ const Navbar = props => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-logo" href="https://fbfly.xyz">
+        <a className="navbar-logo" href="#">
           <img className="logo-img" src={FbFlyLogo} width="50" height="50" />
           <img className="logo-txt" src={FbFlyText} width="120" height="60" />
         </a>
@@ -38,6 +38,7 @@ const Navbar = props => {
         <a
           className="navbar-item"
           href="http://dao.aragonchina.xyz/"
+          target="_blant"
         >
           Aragon China DAO
         </a>

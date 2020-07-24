@@ -101,7 +101,7 @@ const RampView = () => {
                 className="create-button"
                 onClick={() => {
                   setOnRamp(false)
-                  setStep(1)
+                  setStep(2)
                 }}
               >
                 Create your DAO now
@@ -120,14 +120,14 @@ const RampView = () => {
         </>
       ) : (
         <>
-          <span className="ramp-title">
+          {/* <span className="ramp-title">
             You need funds to create and manage the DAO
-          </span>
-          <InfoButton
+          </span> */}
+          {/* <InfoButton
             title={'Why do I need funds to create and manage a DAO?'}
             content={'Because you do!'}
-          />
-          <div className="ramp-input-container">
+          /> */}
+          {/* <div className="ramp-input-container">
             <div className="usd-input">
               <span className="ramp-label">Send</span>
               <input
@@ -157,19 +157,19 @@ const RampView = () => {
               />
               <span class="ramp-unit">xDAI</span>
             </div>
-          </div>
-          <span className="ramp-details">
+          </div> */}
+          {/* <span className="ramp-details">
             Each transaction costs ${(usd - xDai).toFixed(3)} USD to process
-          </span>
+          </span> */}
 
-          <a
+          {/* <a
             className="ramp-button"
             onClick={() => {
               onRamp()
             }}
           >
             Buy now
-          </a>
+          </a> */}
         </>
       )}
     </div>

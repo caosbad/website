@@ -95,10 +95,10 @@ const Step2View = () => {
       <a className="step2-button" onClick={submit}>
         Next Step
       </a>
-      <a className="step2-back-button" onClick={back}>
+      {/* <a className="step2-back-button" onClick={back}>
         <img className="back-img" src={Back} />
         Back
-      </a>
+      </a> */}
     </div>
   )
 }
