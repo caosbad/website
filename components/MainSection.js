@@ -8,10 +8,10 @@ const MainSection = props => (
   <main className="main">
     <section className="main-header">
       <span className="main-header-title">
-        Transform your facebook group into a DAO
+        正和之道
       </span>
       <span className="main-header-subtitle">
-        Money and Voting super powers for your Facebook Group
+        运行于Aragon的新型组织
       </span>
     </section>
     <section className="main-examples">
@@ -19,29 +19,27 @@ const MainSection = props => (
       <ExampleCard className="foreground-card" />
     </section>
     <section className="main-sections">
-      <span className="main-sections-text">What Fbfly does</span>
+      <span className="main-sections-text">AragonChina</span>
       <div className="main-sections-grid">
         <div className="main-sections-item">
           <img className="section-img" src={Section1} />
-          <div className="section-title">Collect or Earn Funds</div>
+          <div className="section-title">正和之道</div>
           <div className="section-description">
-            Raise funds for your Facebook Group or commercialise operations
+            Aragon为人类提供了前所未有的力量，让人类可以基于价值互联而创造更大价值，正所谓：正和之道
           </div>
         </div>
         <div className="main-sections-item">
           <img className="section-img" src={Section2} />
-          <div className="section-title">Manage funds</div>
+          <div className="section-title">下一代组织</div>
           <div className="section-description">
-            Group members decide collectively & transparently what funds should be spent on what, to whom and
-            when 
+            我们正在帮助东方的组织和个人构建基于Aragon的下一代新型组织，并支持他们成长。
           </div>
         </div>
         <div className="main-sections-item">
           <img className="section-img" src={Section3} />
-          <div className="section-title">Fly</div>
+          <div className="section-title">构建社区</div>
           <div className="section-description">
-            Give your Facebook Group the wings it needs to fly and be
-            independent
+           我们正在构建东方的Aragon社区，以帮助所有Aragon的参与者构建一个可持续发展的生态，包括 ANT 和 DAO。
           </div>
         </div>
       </div>
