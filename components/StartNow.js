@@ -6,7 +6,7 @@ const StartNow = props => (
     <div className="start-now-inner">
       <img className="logo-watermark" src={LogoWatermark} />
       <span className="start-now-text">
-          Bring DeFi to your Facebook Group
+          帮助东方的组织和个人构建基于Aragon的下一代新型组织
       </span>
       <a href="/onboarding" className="start-now-button">
         Start now

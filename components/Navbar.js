@@ -1,5 +1,5 @@
-import FbFlyText from '../public/images/fbfly-text.svg'
-import FbFlyLogo from '../public/images/fbfly-logo.svg'
+import FbFlyText from '../public/images/aragon-text.svg'
+import FbFlyLogo from '../public/images/aragon-logo.svg'
 import '../styles/navbar.sass'
 import { useState } from 'react'
 
@@ -37,16 +37,16 @@ const Navbar = props => {
       >
         <a
           className="navbar-item"
-          href="https://aragon.1hive.org/#/0x9a955626885d5286fd7f041a2cdba2acc4c09516"
+          href="http://dao.aragonchina.xyz/"
         >
-          The FBFly DAO
+          Aragon China DAO
         </a>
-        <a className="navbar-item" href="https://fbfly.xyz/daoList">
+        {/* <a className="navbar-item" href="https://fbfly.xyz/daoList">
           Explore FB DAOs
-        </a>
-        <a className="navbar-item" href="https://docs.fbfly.xyz/">
+        </a> */}
+        {/* <a className="navbar-item" href="https://docs.fbfly.xyz/">
           About
-        </a>
+        </a> */}
         <a href="/onboarding" className="navbar-item navbar-start-now">
           Start now
         </a>
