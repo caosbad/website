@@ -24,7 +24,8 @@ const Step3View = () => {
   const createNewDao = async () => {
     setLoading({ img: Loading, title: 'Your dao is being created' })
     const torusProvider = web3Obj.provider
-    const userInfo = web3Obj.getUserInfo()
+    const userInfo = await web3Obj.metamask.user
+    // const userInfo = web3Obj.getUserInfo()
 
     const daoMetadata = {
       creatorName: userInfo.name,
@@ -33,7 +34,7 @@ const Step3View = () => {
       name,
       currency,
       description,
-      logoImageHash,
+      logoHash,
     }
 
     const metadataHash = ipldService.uploadMetadata(daoMetadata)
