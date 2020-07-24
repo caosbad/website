@@ -21,8 +21,9 @@ const LoginView = () => {
     try {
       setLoading({ img: Wallet, title: 'Your wallet is being created' })
       await web3Obj.initialize('xdai')
+    
       const userInfo = await web3Obj.torus.getUserInfo()
-      console.log(userInfo)
+      console.log("userInfo")
       const xDaiBalance = await web3Obj.balance()
       setxDaiBalance(xDaiBalance)
       // if (xDaiBalance < 1) {
@@ -38,19 +39,43 @@ const LoginView = () => {
       console.error(error)
     }
   }
+
+  async function loginWithMetaMask() {
+    try {
+      setLoading({ img: Wallet, title: 'Your wallet is being created' })
+      // await web3Obj.initialize('xdai')
+       // 获取用户信息
+      const userInfo = await web3Obj.metamask.user
+      console.log("userInfo",userInfo)
+      // const xDaiBalance = await web3Obj.balance()
+      // setxDaiBalance(xDaiBalance)
+      // if (xDaiBalance < 1) {
+      setOnRamp(true)
+      // } else {
+      //   setStep(1)
+      // }
+      setLoading(undefined)
+      setUserName(userInfo.name)
+      // setProfileImage(userInfo.profileImage)
+      setConnected(true)
+    } catch (error) {
+      console.error(error)
+    }
+  }
   return (
     <div className="card-inner">
       <img className="login-img" src={Login} />
-      <span className="login-title">Connect your Facebook account</span>
+      <span className="login-title">Connect your Web3 account</span>
 
       <a
         className="login-button"
         onClick={() => {
-          loginWithTorus()
+          // loginWithTorus()
+          loginWithMetaMask()
         }}
       >
-        <img className="fb-login-img" src={FbLogin} />
-        Login with Facebook
+        {/* <img className="" src={FbLogin} /> */}
+        Login with Web3
       </a>
     </div>
   )
