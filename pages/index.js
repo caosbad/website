@@ -3,7 +3,6 @@ import Footer from '../components/Footer'
 import MainSection from '../components/MainSection'
 import StartNow from '../components/StartNow'
 import Navbar from '../components/Navbar'
-
 const Home = () => {
   return (
     <>

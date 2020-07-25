@@ -1,12 +1,14 @@
 import '../styles/startnow.sass'
 import start from '../public/images/start-now-inner-back.svg'
-
-const StartNow = props => (
+import { useTranslation } from 'react-i18next';
+const StartNow = props =>{ 
+  const { t, i18n } = useTranslation();
+  return(
   <section className="start-now">
     <div className="start-now-inner">
       <img className="logo-watermark" src={start} />
       <span className="start-now-text">
-          帮助东方的组织和个人构建基于Aragon的下一代新型组织
+      {t('start-now-text')}
       </span>
       <a href="/onboarding" className="start-now-button">
         Start now
@@ -14,5 +16,5 @@ const StartNow = props => (
     </div>
   </section>
 )
-
+}
 export default StartNow

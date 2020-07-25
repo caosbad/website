@@ -2,8 +2,10 @@ import FbFlyText from '../public/images/aragon-text.svg'
 import FbFlyLogo from '../public/images/aragon-logo.svg'
 import '../styles/navbar.sass'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 
 const Navbar = props => {
+  const { t, i18n } = useTranslation();
   const [open, toggleOpen] = useState(false)
   return (
     <nav
@@ -35,6 +37,8 @@ const Navbar = props => {
           toggleOpen(open => false)
         }}
       >
+        <a className="navbar-item" onClick={() => i18n.changeLanguage(i18n.language == 'en' ? 'zh' : 'en')}>{i18n.language == 'en' ? '中文' : 'EN '}</a>
+
         <a
           className="navbar-item"
           href="http://dao.aragonchina.xyz/"
