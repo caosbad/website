@@ -11,7 +11,7 @@ const StartNow = props =>{
       {t('start-now-text')}
       </span>
       <a href="/onboarding" className="start-now-button">
-        Start now
+      {t('start-now')}
       </a>
     </div>
   </section>

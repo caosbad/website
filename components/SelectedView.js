@@ -21,7 +21,7 @@ const SelectedView = () => {
       <img className="login-img" src={Login} />
       <span className="login-title">{t('select-network')}</span>
       <DropDown
-      items={['Ethereum', 'xDAI']}
+      items={['xDai', 'Ethereum']}
       selected={selected}
       onChange={setSelected}
     />
