@@ -14,7 +14,7 @@ const Navbar = props => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-logo" href="#">
+        <a className="navbar-logo" href="https://aragonchina.xyz/">
           <img className="logo-img" src={FbFlyLogo} width="50" height="50" />
           <img className="logo-txt" src={FbFlyText} width="120" height="60" />
         </a>

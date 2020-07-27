@@ -1,6 +1,5 @@
 import '../styles/step2-view.sass'
 import Back from '../public/images/back.svg'
-import EthicalBrandLogo from '../public/images/ethical-brand.svg'
 import { useContext, useState, useEffect } from 'react'
 import UserContext from '../lib/UserContext'
 import fleekStorage from '@fleekhq/fleek-storage-js'
