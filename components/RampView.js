@@ -6,6 +6,7 @@ import Arrow from '../public/images/arrow.svg'
 import Success from '../public/images/success.svg'
 import Failure from '../public/images/failure.svg'
 import InfoButton from './InfoButton'
+import { useTranslation } from 'react-i18next';
 
 const RampView = () => {
   const {
@@ -81,6 +82,7 @@ const RampView = () => {
 
   const [usd, setUsd] = useState(10)
   const [xDai, setxDai] = useState(calcxDaiFromUsd(10))
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="card-inner">
@@ -88,12 +90,12 @@ const RampView = () => {
         <>
           <img className="ramp-img" src={onRampSuccess ? Success : Failure} />
           <span className="ramp-title">
-            {onRampSuccess ? 'Transaction Success' : 'Transaction Failed!'}
+            {onRampSuccess ? t("login-success") : t("login-fail")}
           </span>
           <span className="ramp-description">
             {onRampSuccess
-              ? `Your balance is ${(xDaiBalance / 10 ** 18).toFixed(3)} xDAI`
-              : 'Some problems have occurred during the process'}
+              ? t("balance")+`${(xDaiBalance / 10 ** 18).toFixed(3)} xDAI`
+              : t("error_info")}
           </span>
           <div className="done-buttons">
             {onRampSuccess ? (
@@ -104,7 +106,7 @@ const RampView = () => {
                   setStep(2)
                 }}
               >
-                Create your DAO now
+                 {t("create-dao")}
               </a>
             ) : (
               <a

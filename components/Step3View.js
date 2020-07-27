@@ -6,6 +6,8 @@ import UserContext from '../lib/UserContext'
 import InfoButton from './InfoButton'
 import ipldService from '../lib/ipld'
 import createDao from '../lib/createDao'
+import { useTranslation } from 'react-i18next';
+
 
 const Step3View = () => {
   const {
@@ -20,9 +22,10 @@ const Step3View = () => {
     description,
     logoHash,
   } = useContext(UserContext)
+  const { t, i18n } = useTranslation();
 
   const createNewDao = async () => {
-    setLoading({ img: Loading, title: 'Your dao is being created' })
+    setLoading({ img: Loading})
     const torusProvider = web3Obj.provider
     const userInfo = await web3Obj.metamask.user
     // const userInfo = web3Obj.getUserInfo()
@@ -52,14 +55,15 @@ const Step3View = () => {
     setStep(2)
   }
 
+
   return (
     <div className="card-inner">
       <span className="step3-label">
-        What would you like your community currency?
+      {t('what-hope')}
       </span>
       <input
         className="step3-input"
-        placeholder="Ethical"
+        placeholder={t('Ethiacl')}
         value={currency}
         onChange={e => {
           setCurrency(e.target.value)
@@ -67,15 +71,15 @@ const Step3View = () => {
       />
 
       <InfoButton
-        title={'All DAOs come with their own community tokens.'}
+        title={t('what-hope-tip')}
         content={'Because they just do!'}
       />
       <a className="step3-button" onClick={createNewDao}>
-        Create DAO
+      {t('start')}
       </a>
       <a className="step3-back-button" onClick={back}>
         <img className="back-img" src={Back} />
-        Back
+        {t('back')}
       </a>
     </div>
   )

@@ -53,7 +53,7 @@ const Navbar = props => {
           About
         </a> */}
         <a href="/onboarding" className="navbar-item navbar-start-now">
-          Start now
+          {t('start-now')}
         </a>
       </div>
     </nav>

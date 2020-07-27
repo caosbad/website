@@ -4,6 +4,7 @@ import EthicalBrandLogo from '../public/images/ethical-brand.svg'
 import { useContext, useState, useEffect } from 'react'
 import UserContext from '../lib/UserContext'
 import fleekStorage from '@fleekhq/fleek-storage-js'
+import { useTranslation } from 'react-i18next';
 
 const Step2View = () => {
   const {
@@ -44,24 +45,25 @@ const Step2View = () => {
     console.log('file upload done')
     setLogoHash(uploadedFile.hash)
   }
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="card-inner">
       <div className="step2-inner">
         <div className="text-section">
-          <span className="name-label">DAO Name</span>
+          <span className="name-label">{t("dao-name")}</span>
           <input
             className="name-input"
-            placeholder="Ethical Brand"
+            placeholder={t("dao-name-tip")}
             value={name}
             onChange={e => {
               setName(e.target.value)
             }}
           />
-          <span className="description-label">DAO Description</span>
+          <span className="description-label">{t("dao-desc")}</span>
           <textarea
             className="description-input"
-            placeholder="About Ethical Brand"
+            placeholder={t("dao-desc-tip")}
             value={description}
             onChange={e => {
               setDescription(e.target.value)
@@ -78,7 +80,7 @@ const Step2View = () => {
               />
             </div>
             <label className="logo-upload-button">
-              Upload new
+            {t("up-new")}
               <input
                 style={{ display: 'none' }}
                 type="file"
@@ -93,12 +95,12 @@ const Step2View = () => {
         </div>
       </div>
       <a className="step2-button" onClick={submit}>
-        Next Step
+      {t("next")}
       </a>
-      {/* <a className="step2-back-button" onClick={back}>
+      <a className="step2-back-button" onClick={back}>
         <img className="back-img" src={Back} />
         Back
-      </a> */}
+      </a>
     </div>
   )
 }

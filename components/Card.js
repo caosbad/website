@@ -8,14 +8,16 @@ import { UserProvider } from '../lib/UserContext'
 import DAOView from './DAOView'
 import LoginView from './LoginView'
 import RampView from './RampView'
-// import Step1View from './Step1View'
+import SelectedView from './SelectedView'
 import Step2View from './Step2View'
 import Step3View from './Step3View'
 import LoadingView from './LoadingView'
+import { useTranslation } from 'react-i18next';
 
 const Card = ({ className }) => {
   const [profileImage, setProfileImage] = useState(UserProfile)
   const [userName, setUserName] = useState('John Doe')
+  const [selectNetwork, setSelectNetwork] = useState(false)
   const [connected, setConnected] = useState(false)
   const [loading, setLoading] = useState(undefined)
   const [flying, setFlying] = useState(false)
@@ -50,11 +52,13 @@ const Card = ({ className }) => {
 
   const [onRampDone, setOnRampDone] = useState(false)
   const [onRampSuccess, setOnRampSuccess] = useState(false)
+  const { t, i18n } = useTranslation();
   return (
     <div className={className ? `card ${className}` : 'card'}>
       <UserProvider
         value={{
           web3Obj,
+          setSelectNetwork,
           setConnected,
           setStep,
           //Login
@@ -100,17 +104,17 @@ const Card = ({ className }) => {
               <div className="balance">
                 {`${(xDaiBalance / 10 ** 18).toFixed(2)} xDai (USD)`}
               </div>
-              {onRamp && (
-                <div className="alert">
-                  <img className="alert-img" src={Alert} />
-                  {'Insufficient funds'}
-                </div>
-              )}
+                {/* {onRamp && (
+                  <div className="alert">
+                    <img className="alert-img" src={Alert} />
+                    {'Insufficient funds'}
+                  </div>
+                )} */}
             </div>
           ) : (
             <div className="card-status">
               <div className="status-icon false" />
-              <div className="status-text">Not connected</div>
+              <div className="status-text">{t('not-connected')}</div>
             </div>
           ))}
         {!flying && !loading && (
@@ -126,37 +130,36 @@ const Card = ({ className }) => {
               className={step === 2 ? 'tab selected' : 'tab'}
               onClick={() => connected && setStep(2)}
             >
-              <span className="tab-title">Step 01</span>
-              <span className="tab-description">Set DAO profile</span>
+              <span className="tab-title">{t('step1')}</span>
+              <span className="tab-description">{t('step1-desc')}</span>
             </div>
             <div
               className={step === 3 ? 'tab selected' : 'tab'}
               onClick={() => connected && setStep(3)}
             >
-              <span className="tab-title">Step 02</span>
-              <span className="tab-description">DAO settings</span>
+              <span className="tab-title">{t('step2')}</span>
+              <span className="tab-description">{t('step2-desc')}</span>
             </div>
             <div
               className={step === 4 ? 'tab selected' : 'tab'}
               onClick={() => connected && setStep(4)}
             >
-              <span className="tab-title">Step 03</span>
-              <span className="tab-description">Confirm DAO</span>
+              <span className="tab-title">{t('step3')}</span>
+              <span className="tab-description">{t('step3-desc')}</span>
             </div>
           </div>
         )}
         {loading ? (
-          <LoadingView img={loading.img} title={loading.title} />
+          <LoadingView img={loading.img} />
         ) : onRamp ? (
           <RampView />
+        ) : !selectNetwork ? (
+          <SelectedView />
         ) : !connected ? (
           <LoginView />
         ) : flying ? (
           <DAOView />
         ) 
-        // : step === 1 ? (
-        //   <Step1View />
-        // ) 
         : step === 2 ? (
           <Step2View />
         ) : step === 3 ? (

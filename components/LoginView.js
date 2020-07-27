@@ -1,9 +1,12 @@
 import '../styles/login-view.sass'
 import { useContext } from 'react'
 import UserContext from '../lib/UserContext'
-import FbLogin from '../public/images/fb-login.svg'
 import Login from '../public/images/login.svg'
 import Wallet from '../public/images/wallet.svg'
+import { useTranslation } from 'react-i18next';
+import { DropDown } from '@aragon/ui'
+import { useState } from 'react'
+
 
 const LoginView = () => {
   const {
@@ -16,6 +19,9 @@ const LoginView = () => {
     setUserName,
     setProfileImage,
   } = useContext(UserContext)
+
+  const { t, i18n } = useTranslation();
+  const [selected, setSelected] = useState(0)
 
   async function loginWithTorus() {
     try {
@@ -65,7 +71,7 @@ const LoginView = () => {
   return (
     <div className="card-inner">
       <img className="login-img" src={Login} />
-      <span className="login-title">Connect your Web3 account</span>
+      <span className="login-title">{t('login-tittle')}</span>
 
       <a
         className="login-button"
@@ -74,9 +80,15 @@ const LoginView = () => {
           loginWithMetaMask()
         }}
       >
+
         {/* <img className="" src={FbLogin} /> */}
-        Login with Web3
+        {t('login-button')}
       </a>
+      {/* <DropDown
+      items={['Wandering Thunder', 'Black Wildflower', 'Ancient Paper']}
+      selected={selected}
+      onChange={setSelected}
+    /> */}
     </div>
   )
 }

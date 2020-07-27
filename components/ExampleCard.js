@@ -15,7 +15,7 @@ const ExampleCard = ({ className }) => {
       <span class="start-now-text"> {t('card-p1')}</span>
       <span class="start-now-text">{t('card-p2')}</span>
       </div>
-      <img className="logo-watermark" src={example} />
+      <img className="logo-watermark" src={example}/>
     </div>
   )
 }
