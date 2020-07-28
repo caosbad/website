@@ -1,18 +1,20 @@
 import '../styles/startnow.sass'
-import LogoWatermark from '../public/images/logo-watermark-startnow.svg'
-
-const StartNow = props => (
+import start from '../public/images/start-now-inner-back.svg'
+import { useTranslation } from 'react-i18next';
+const StartNow = props =>{ 
+  const { t, i18n } = useTranslation();
+  return(
   <section className="start-now">
     <div className="start-now-inner">
-      <img className="logo-watermark" src={LogoWatermark} />
+      <img className="logo-watermark" src={start} />
       <span className="start-now-text">
-        Start now, create your first community
+      {t('start-now-text')}
       </span>
       <a href="/onboarding" className="start-now-button">
-        Start now
+      {t('start-now')}
       </a>
     </div>
   </section>
 )
-
+}
 export default StartNow

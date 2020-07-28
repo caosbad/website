@@ -3,4 +3,6 @@
 .now
 /node_modules/
 .next/
+.idea/
 *.swp
+truffle-config.js

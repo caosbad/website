@@ -1,9 +1,11 @@
-import FbFlyText from '../public/images/fbfly-text.svg'
-import FbFlyLogo from '../public/images/fbfly-logo.svg'
+import FbFlyText from '../public/images/aragon-text.svg'
+import FbFlyLogo from '../public/images/aragon-logo.svg'
 import '../styles/navbar.sass'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 
 const Navbar = props => {
+  const { t, i18n } = useTranslation();
   const [open, toggleOpen] = useState(false)
   return (
     <nav
@@ -12,7 +14,7 @@ const Navbar = props => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-logo" href="https://fbfly.xyz">
+        <a className="navbar-logo" href="https://aragonchina.xyz/">
           <img className="logo-img" src={FbFlyLogo} width="50" height="50" />
           <img className="logo-txt" src={FbFlyText} width="120" height="60" />
         </a>
@@ -35,11 +37,23 @@ const Navbar = props => {
           toggleOpen(open => false)
         }}
       >
-        <a className="navbar-item">Why</a>
-        <a className="navbar-item">Product</a>
-        <a className="navbar-item">About</a>
+        <a className="navbar-item" onClick={() => i18n.changeLanguage(i18n.language == 'en' ? 'zh' : 'en')}>{i18n.language == 'en' ? '中文' : 'EN '}</a>
+
+        <a
+          className="navbar-item"
+          href="http://dao.aragonchina.xyz/"
+          target="_blant"
+        >
+          Aragon China DAO
+        </a>
+        {/* <a className="navbar-item" href="https://fbfly.xyz/daoList">
+          Explore FB DAOs
+        </a> */}
+        {/* <a className="navbar-item" href="https://docs.fbfly.xyz/">
+          About
+        </a> */}
         <a href="/onboarding" className="navbar-item navbar-start-now">
-          Start now
+          {t('start-now')}
         </a>
       </div>
     </nav>
